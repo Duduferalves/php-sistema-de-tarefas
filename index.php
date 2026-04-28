@@ -1,5 +1,7 @@
 <?php
 // index.php
+// Framework escolhido: Bootstrap 5
+// Importado em layout.php via https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css
 session_start();
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
@@ -48,9 +50,7 @@ $tarefas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo date('d/m/Y H:i', strtotime($t['data_criacao'])); ?></td>
                             <td class="text-end">
                                 <a href="editar.php?id=<?php echo $t['id']; ?>" class="btn btn-sm btn-outline-primary">Editar</a>
-                                <?php if ($t['status'] === 'pendente'): ?>
-                                    <a href="concluir.php?id=<?php echo $t['id']; ?>" class="btn btn-sm btn-success">Concluir</a>
-                                <?php endif; ?>
+                                <a href="concluir.php?id=<?php echo $t['id']; ?>" class="btn btn-sm btn-success">Concluir</a>
                                 <a href="excluir.php?id=<?php echo $t['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Confirma a exclusão dessa tarefa?');">Excluir</a>
                             </td>
                         </tr>

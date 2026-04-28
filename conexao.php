@@ -2,8 +2,8 @@
 // conexao.php
 $host = 'localhost';
 $db   = 'tarefas';
-$user = 'root'; // Altere conforme sua máquina local
-$pass = '';     // Altere conforme sua máquina local
+$user = 'root'; 
+$pass = 'ceub123456';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
